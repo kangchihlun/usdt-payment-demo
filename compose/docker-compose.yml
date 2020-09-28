@@ -1,0 +1,65 @@
+version: '2'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_INITDB_DATABASE=upay
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=upay123
+    ports:
+        - 27017:27017
+    command: [--auth]
+    volumes:
+      - data01:/data/db
+      - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js.js:ro
+    networks:
+      - backend
+    restart: always
+  upay-backend-redis1:
+    image: redis:3.2
+    volumes:
+      - ./redis/redis.conf:/etc/redis/redis.conf:ro
+      - ./redis/data:/data
+    command:
+      - redis-server
+      - /etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+    restart: always
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "25672:25672"
+      - "5672:5672"
+      - "15672:15672"
+    container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: upay
+      RABBITMQ_DEFAULT_PASS: upay123
+      RABBITMQ_NODENAME: rabbitmq
+      RABBITMQ_ERLANG_COOKIE: CURIOAPPLICATION
+    restart: always
+  # upay-backend:
+  #   build: ../
+  #   restart: always
+  #   volumes:
+  #     - api_data:/docker_api
+  #   ports:
+  #     - "8090:8090"
+  #   depends_on:
+  #     - mls-backend-redis1
+  #   networks:
+  #     - backend
+volumes:
+  api_data:
+  data01:
+    driver: local
+networks:
+  backend:
