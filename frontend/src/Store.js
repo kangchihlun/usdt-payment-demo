@@ -33,23 +33,23 @@ function Store({ paymentProcessor, usdt }) {
   return (
     <ul className="list-group">
       <li className="list-group-item">
-        Buy item1 - <span className='font-weight-bold'>100 USD</span>
+        iPhone XX - <span className='font-weight-bold'>100 USD</span>
         <button 
           type="button" 
-          className="btn btn-primary float-right"
+          className="btn btn-warning float-right"
           onClick={() => buy(ITEMS[0])}
         >
-          Buy
+          購買
         </button>
       </li>
       <li className="list-group-item">
-        Buy item2 - <span className='font-weight-bold'>200 USD</span>
+        iPad XX - <span className='font-weight-bold'>200 USD</span>
         <button 
           type="button" 
-          className="btn btn-primary float-right"
+          className="btn btn-warning float-right"
           onClick={() => buy(ITEMS[1])}
         >
-          Buy
+          購買
         </button>
       </li>
     </ul>

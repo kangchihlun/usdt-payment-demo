@@ -19,7 +19,7 @@ function App() {
     return (
       <div className='container'>
         <div className='col-sm-1'>
-          <h1>ERC20 Tokens Ecommerce App</h1>
+          <h1>去中心商城</h1>
           <p>You need to install the latest version of Metamask to use this app. MEtamask is an Ethereum wallet, available as a Google chrome extension.</p>
           <ul>
             <li>Go to the <a href='https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn'>Metamask page</a> on the chrome webstore and install it</li>  
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className='container'>
       <div className='col-sm-12'>
-        <h1>ERC20 Tokens Ecommerce App</h1>
+        <h1>去中心商城</h1>
         <Store paymentProcessor={paymentProcessor} usdt={usdt} />
       </div>
     </div>

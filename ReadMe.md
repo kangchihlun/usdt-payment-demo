@@ -5,6 +5,10 @@
 - 後端使用 koa2+mongoose
 - 主要參考 eattheblock 替換掉部屬到測試網，以及代幣種類(真實上線使用USDT)
 - 後端 mongo 使用 docker-compose 快速生成
+# 項目架構流程圖
+![項目架構流程圖](docs/dapp-eCommerce.jpg)
+# 運行畫面
+![運行畫面](docs/dapp-eCommerce.gif)
 # 項目建置流程
 - cd compose 
 - 視情況修改一下 mongo/init-mongo.js 的帳密
